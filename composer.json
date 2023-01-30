@@ -1,0 +1,10 @@
+{
+    "name": "linkwhorter/shorter",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "require": {}
+}
