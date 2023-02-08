@@ -18,16 +18,16 @@ class MySQLHandler {
         $pass = getenv('DB_PASS');
         $db = getenv('DB_NAME');        
         $connection = new mysqli(
-             $host,
-             $user,
-             $pass,
-             $db
+            $host,
+            $user,
+            $pass,
+            $db
         );
         
         if (mysqli_connect_error()) {
-             header('HTTP/1.1 500 Internal Server Error');
-             die();
-	}
+            header('HTTP/1.1 500 Internal Server Error');
+            die();
+        }
 
         return $connection;
     }
