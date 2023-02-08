@@ -1,16 +1,16 @@
 <?php 
 
 namespace Handlers;
-
+			  
 class MySQLHandler {
 
     private $connection;
 
     public function __costruct() {
-        $this->connection=$this->connectDatabase();
+        $this->connection = $this->connectDatabase();
     }                               
 
-    private static function connectDatabase()
+    private function connectDatabase()
     {
         // database config
         $host = getenv('DB_HOST');
