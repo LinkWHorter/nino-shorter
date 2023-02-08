@@ -6,14 +6,17 @@ class MySQLHandler {
 
     private $connection;
 
+    public function __costruct() {
+        $this->connection=$this->connectDatabase();
+    }                               
+
     private static function connectDatabase()
     {
         // database config
-        $host="localhost";
-        $user="root";
-        $pass="";
-        $db="shortered";     
-        
+        $host = getenv('DB_HOST');
+        $user = gtenv('DB_USER');
+        $pass = getenv('DB_PASS');
+        $db = getenv('DB_NAME');        
         $connection = new mysqli(
              $host,
              $user,
@@ -22,14 +25,10 @@ class MySQLHandler {
         );
         
         if (mysqli_connect_error()) {
-             die("Connection failed: " . mysqli_connect_error());
-        }
-        echo "Connected succesfully.";
+             header('HTTP/1.1 500 Internal Server Error');
+             die();
+	}
 
         return $connection;
-    }
-
-    public function __costruct() {
-        $this->connection=$this->connectDatabase();
     }
 }
